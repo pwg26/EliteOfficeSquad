@@ -2,7 +2,7 @@ const { Manager, Engineer, Intern } = require("./src/classes");
 const inquirer = require("inquirer");
 
 function redundant(answer) {
-  inquirer.prompt([
+  return inquirer.prompt([
     {
       type: "input",
       name: "name",
@@ -22,7 +22,7 @@ function redundant(answer) {
 }
 
 Q1 = () => {
-  //   redundant("manager")
+  redundant("manager");
   inquirer
     .prompt([
       {
