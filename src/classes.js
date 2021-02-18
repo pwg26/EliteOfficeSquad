@@ -17,17 +17,19 @@ class Employee {
 
 // manager class
 class Manager extends Employee {
-  constructor(officeNumber) {
+  constructor(name, id, email, officeNumber) {
     super(name, id, email);
     this.officeNumber = officeNumber;
   }
+
+  getOfficeNumber = () => this.officeNumber;
 
   getRole = () => "Manager";
 }
 
 // engineer class
 class Engineer extends Employee {
-  constructor(github) {
+  constructor(name, id, email, github) {
     super(name, id, email);
     this.github = github;
   }
@@ -39,7 +41,7 @@ class Engineer extends Employee {
 
 // itern class
 class Intern extends Employee {
-  constructor(school) {
+  constructor(name, id, email, school) {
     super(name, id, email);
     this.school = school;
   }
@@ -49,13 +51,4 @@ class Intern extends Employee {
   getRole = () => "Intern";
 }
 
-const a = new Employee("Nick", 4355, 345345);
-const b = new Manager(1112);
-
-console.log(b.getName());
-
-module.exports = {
-  Manager,
-  Engineer,
-  Intern,
-};
+module.exports = { Manager, Engineer, Intern };
