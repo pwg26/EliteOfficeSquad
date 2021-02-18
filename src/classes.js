@@ -34,7 +34,7 @@ class Engineer extends Employee {
     this.github = github;
   }
 
-  getGithub = () => this.github;
+  getGithub = () => `github.com/${this.github}`;
 
   getRole = () => "Engineer";
 }
@@ -51,4 +51,4 @@ class Intern extends Employee {
   getRole = () => "Intern";
 }
 
-module.exports = { Manager, Engineer, Intern };
+module.exports = { Employee, Manager, Engineer, Intern };
