@@ -34,7 +34,7 @@ let content = `
 function writeCard(role, name, id, email, special, color, symbol) {
   content =
     content +
-    `<div id= "first-card" class="card text-white ${color} m-3" style="max-width: 18rem">
+    `<div  class="card text-white ${color} m-3" style="max-width: 18rem">
       <div class="card-header">${symbol}  ${role}</div>
       <div class="card-body">
         <h5 class="card-title">${name}</h5>
@@ -195,7 +195,7 @@ Q2 = (answers2) => {
         </div>
     </body>
   </html>`;
-      fs.writeFile("dist/index2.html", content, function (err) {
+      fs.writeFile("dist/index.html", content, function (err) {
         err ? console.log(err) : console.log("Success!");
       });
 
