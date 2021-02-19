@@ -156,7 +156,7 @@ Q2 = (answers2) => {
           .prompt([
             {
               type: "input",
-              name: "name",
+              name: "school",
               message: `What's school did the intern attend?`,
             },
             {
@@ -168,11 +168,11 @@ Q2 = (answers2) => {
             },
           ])
           .then((answers2) => {
-            newEngineer = new Intern(
+            newIntern = new Intern(
               newEmployee.name,
               newEmployee.id,
               newEmployee.email,
-              answers2.School
+              answers2.school
             );
             writeCard(
               newIntern.getRole(),
@@ -181,7 +181,7 @@ Q2 = (answers2) => {
               newIntern.getEmail(),
               newIntern.getSchool(),
               newIntern.getColor(),
-              newIntern.getGetsymbol()
+              newIntern.getSymbol()
             );
             Q2(answers2);
           });

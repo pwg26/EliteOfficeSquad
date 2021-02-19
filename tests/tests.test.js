@@ -22,7 +22,7 @@ describe("Employee class", () => {
       const Emp = new Employee("Pierce", "1869", "kcaskade@gmail.com");
       Emp.getEmail();
       expect(Emp.getEmail()).toBe(
-        `<a class= "text-dark" href = "mailto: "kcaskade@gmail.com"> kcaskade@gmail.com</a>`
+        `<a class= "text-dark" href = "mailto: kcaskade@gmail.com"> kcaskade@gmail.com</a>`
       );
     });
   });
