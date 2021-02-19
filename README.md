@@ -33,6 +33,8 @@ To begin a rough outline was developed of how the html would appear, which class
 To use this application make sure you have jnode installed- https://nodejs.org/en/ . Next you will clone this repository to a desired location on your device, navigate to the repository from the terminal and type npm-i to initialize the necessary modules.
 
 ## Usage
+check out my youtube tutorial - https://www.youtube.com/watch?v=7MjHWsxk-bw&ab_channel=PierceGladfelter
+
 To use this application, navigate to the repository on your device via the terminal and type node index.js. you will then be prompted with a series of questions in the terminal that will give you the options to add a manager, engineer(s), and intern(s) and information for you to fill out on each employee. After an intern or engineer is added and you decide you are  finished and would like to create your team, an index.html file will be created within the dist folder.
 
 
