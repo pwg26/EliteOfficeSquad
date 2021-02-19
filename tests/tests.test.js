@@ -1,71 +1,75 @@
 const { Employee, Manager, Engineer, Intern } = require("../src/classes");
-// employee
+// employee class
 describe("Employee class", () => {
   describe("getName method", () => {
     it("displays inputed employee name", () => {
-      const Employee = new Employee("Pierce", 1869, "kcaskade@gmail.com");
-      Employee.getName();
-      expect(Employee.name).toBe("Dave");
+      const Emp = new Employee("Pierce", "1869", "kcaskade@gmail.com");
+      Emp.getName();
+      expect(Emp.name).toBe("Pierce");
     });
   });
 
   describe("getId method", () => {
     it("displays inputed employee's ID", () => {
-      const Employee = new Employee("Pierce", 1869, "kcaskade@gmail.com");
-      Employee.getId();
-      expect(Employee.id).toBe(5);
+      const Emp = new Employee("Pierce", "1869", "kcaskade@gmail.com");
+      Emp.getId();
+      expect(Emp.id).toBe("1869");
     });
   });
 
   describe("getEmail method", () => {
     it("displays inputed employee's Email", () => {
-      const Employee = new Employee("Pierce", 1869, "kcaskade@gmail.com");
-      Employee.getEmail();
-      expect(Employee.email).toBe("dave@manager.com");
+      const Emp = new Employee("Pierce", "1869", "kcaskade@gmail.com");
+      Emp.getEmail();
+      expect(Emp.getEmail()).toBe(
+        `<a class= "text-dark" href = "mailto: "kcaskade@gmail.com"> kcaskade@gmail.com</a>`
+      );
     });
   });
 
   describe("getRole method", () => {
     it("displays the inputed employee's role", () => {
-      const Employee = new Employee("Pierce", 1869, "kcaskade@gmail.com");
-      Employee.getRole();
-      expect(Employee.getRole()).toBe("Employee");
+      const Emp = new Employee("Pierce", "1869", "kcaskade@gmail.com");
+      Emp.getRole();
+      expect(Emp.getRole()).toBe("Employee");
     });
   });
 });
 
-// manager
+// manager class
 describe("Manager class", () => {
   describe("OfficeNumber method", () => {
     it("displays inputed managers's office number", () => {
-      const M = new Manager("Pierce", 1869, "kcaskade@gmail.com", 666);
+      const M = new Manager("Pierce", "1869", "kcaskade@gmail.com", "666");
       M.getOfficeNumber();
-      expect(M.getOfficeNumber()).toBe(666);
+      expect(M.getOfficeNumber()).toBe("Office #: 666");
     });
   });
 
   describe("getRole method", () => {
     it("displays the inputed manager's role", () => {
-      const M = new Manager("Pierce", 1869, "kcaskade@gmail.com", 666);
+      const M = new Manager("Pierce", "1869", "kcaskade@gmail.com", "666");
       M.getRole();
       expect(M.getRole()).toBe("Manager");
     });
   });
 });
 
-// engineer
+// engineer class
 describe("Engineer class", () => {
   describe("getGithub method", () => {
     it("displays inputed engineers's office number", () => {
-      const E = new Engineer("Pierce", 1869, "kcaskade@gmail.com", "pwg21");
+      const E = new Engineer("Pierce", "1869", "kcaskade@gmail.com", "pwg21");
       E.getGithub();
-      expect(E.email).toBe("github.com/pwg21");
+      expect(E.getGithub()).toBe(
+        `GitHub: <a class="text-dark" href = "github.com/pwg21"> pwg21</a>`
+      );
     });
   });
 
   describe("getRole method", () => {
     it("displays the inputed engineers's role", () => {
-      const E = new Engineer("Pierce", 1869, "kcaskade@gmail.com", "pwg21");
+      const E = new Engineer("Pierce", "1869", "kcaskade@gmail.com", "pwg21");
       E.getRole();
       expect(E.getRole()).toBe("Engineer");
     });
@@ -78,12 +82,12 @@ describe("Intern class", () => {
     it("displays inputed Interns college", () => {
       const I = new Intern(
         "Pierce",
-        1869,
+        "1869",
         "kcaskade@gmail.com",
         "Ball so Hard U"
       );
       I.getEmail();
-      expect(I.email).getSchool("Ball so Hard U");
+      expect(I.getSchool()).toBe("School: Ball so Hard U");
     });
   });
 
@@ -91,12 +95,12 @@ describe("Intern class", () => {
     it("displays the inputed Intern's role", () => {
       const I = new Intern(
         "Pierce",
-        1869,
+        "1869",
         "kcaskade@gmail.com",
         "Ball so Hard U"
       );
       I.getRole();
-      expect(I.getRole()).toBe("Student");
+      expect(I.getRole()).toBe("Intern");
     });
   });
 });

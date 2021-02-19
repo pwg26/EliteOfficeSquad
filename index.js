@@ -1,9 +1,9 @@
+// module imports
 const { Manager, Engineer, Intern, Employee } = require("./src/classes");
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-// ("use strict");
-
+// html starter content
 let content = `
 <!DOCTYPE html>
 
@@ -30,6 +30,7 @@ let content = `
   \n
 `;
 
+//function to add employee card profiles to content
 function writeCard(role, name, id, email, special, color, symbol) {
   content =
     content +
@@ -46,6 +47,7 @@ function writeCard(role, name, id, email, special, color, symbol) {
     </div>`;
 }
 
+// repeat inquery prompt for re-occouring email, id, and name
 function redundant(answers) {
   return inquirer.prompt([
     {
@@ -65,7 +67,7 @@ function redundant(answers) {
     },
   ]);
 }
-
+// first set of questions for manager which leads to 2nd set of questions
 Q1 = () => {
   redundant("manager").then((answers) => {
     newEmployee = new Employee(answers.name, answers.id, answers.email);
@@ -104,8 +106,10 @@ Q1 = () => {
   });
 };
 
+// 2nd set of questions that re-occour until finished is choosen
 Q2 = (answers2) => {
   switch (answers2.type) {
+    // for engineer
     case "Engineer":
       redundant("Engineer").then((answers) => {
         newEmployee = new Employee(answers.name, answers.id, answers.email);
@@ -144,7 +148,7 @@ Q2 = (answers2) => {
           });
       });
       break;
-
+    // for intern
     case "Intern":
       redundant("Intern").then((answers) => {
         newEmployee = new Employee(answers.name, answers.id, answers.email);
@@ -183,6 +187,7 @@ Q2 = (answers2) => {
           });
       });
       break;
+    // wited content with closesing html tags
     case "Finished":
       content =
         content +
@@ -197,7 +202,7 @@ Q2 = (answers2) => {
       break;
   }
 };
-
+// initializes application
 init = () => {
   Q1();
 };
