@@ -1,7 +1,8 @@
-const { Manager, Engineer, Intern } = require("./src/classes");
+const { Manager, Engineer, Intern, Employee } = require("./src/classes");
 const inquirer = require("inquirer");
+const fs = require("fs");
 
-("use strict");
+// ("use strict");
 
 function redundant(answers) {
   return inquirer.prompt([
@@ -12,7 +13,7 @@ function redundant(answers) {
     },
     {
       type: "input",
-      name: "ID",
+      name: "id",
       message: `What's team ${answers}'s ID.`,
     },
     {
@@ -24,7 +25,8 @@ function redundant(answers) {
 }
 
 Q1 = () => {
-  redundant("manager").then(() => {
+  redundant("manager").then((answers) => {
+    newEmployee = new Employee(answers.name, answers.id, answers.email);
     inquirer
       .prompt([
         {
@@ -39,16 +41,30 @@ Q1 = () => {
           choices: ["Engineer", "Intern"],
         },
       ])
-      .then((answers) => {
-        Q2(answers);
+      .then((answers2) => {
+        newManager = new Manager(
+          newEmployee.name,
+          newEmployee.id,
+          newEmployee.email,
+          answers2.office
+        );
+        // writeCard(
+        //   newManager.getRole(),
+        //   newManager.getName(),
+        //   newManager.getId(),
+        //   newManager.getEmail(),
+        //   newManager.getOfficeNumber()
+        // );
+        Q2(answers2);
       });
   });
 };
 
-Q2 = (answers) => {
-  switch (answers.type) {
+Q2 = (answers2) => {
+  switch (answers2.type) {
     case "Engineer":
-      redundant("Engineer").then(() => {
+      redundant("Engineer").then((answers) => {
+        newEmployee = new Employee(answers.name, answers.id, answers.email);
         inquirer
           .prompt([
             {
@@ -64,14 +80,21 @@ Q2 = (answers) => {
               choices: ["Finished", "Engineer", "Intern"],
             },
           ])
-          .then((answers) => {
-            Q2(answers);
+          .then((answers2) => {
+            newEngineer = new Engineer(
+              newEmployee.name,
+              newEmployee.id,
+              newEmployee.email,
+              answers2.Git
+            );
+            Q2(answers2);
           });
       });
       break;
 
     case "Intern":
-      redundant("Intern").then(() => {
+      redundant("Intern").then((answers) => {
+        newEmployee = new Employee(answers.name, answers.id, answers.email);
         inquirer
           .prompt([
             {
@@ -87,8 +110,14 @@ Q2 = (answers) => {
               choices: ["Finished", "Engineer", "Intern"],
             },
           ])
-          .then(function (answers) {
-            Q2(answers);
+          .then((answers2) => {
+            newEngineer = new Intern(
+              newEmployee.name,
+              newEmployee.id,
+              newEmployee.email,
+              answers2.School
+            );
+            Q2(answers2);
           });
       });
       break;
