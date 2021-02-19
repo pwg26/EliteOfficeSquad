@@ -1,4 +1,3 @@
-
 {
   "name": "01-stu_tdd-dissect",
   "version": "1.0.0",
@@ -11,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "inquirer": "^7.3.3"
   }
 }
