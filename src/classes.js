@@ -50,7 +50,7 @@ class Engineer extends Employee {
   }
 
   getGithub = () =>
-    `GitHub: <a class="text-dark" href = "github.com/${this.github}"> ${this.github}</a>`;
+    `GitHub: <a class="text-dark" href = "https://github.com/${this.github}"> ${this.github}</a>`;
 
   getRole = () => "Engineer";
 
