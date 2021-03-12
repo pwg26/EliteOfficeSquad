@@ -195,7 +195,7 @@ Q2 = (answers2) => {
         </div>
     </body>
   </html>`;
-      fs.writeFile("dist/index.html", content, function (err) {
+      fs.writeFile("lib/index.html", content, function (err) {
         err ? console.log(err) : console.log("Success!");
       });
 
